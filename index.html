@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> 🌻🌻🌻🌻🌻🌻</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at center,
+        #24104f,
+        #09001a 70%);
+    color: white;
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+/* Stars */
+.star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; }
+    to { opacity: 1; }
+}
+
+/* Falling hearts */
+.heart {
+    position: fixed;
+    top: -30px;
+    color: #ff4d88;
+    font-size: 25px;
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main container */
+.container {
+    position: relative;
+    z-index: 5;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Ethiopian flag colors */
+.flag {
+    font-size: 45px;
+    margin-bottom: 15px;
+    animation: floating 2s infinite ease-in-out;
+}
+
+@keyframes floating {
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    font-size: clamp(30px, 7vw, 65px);
+    color: #ffd700;
+    text-shadow:
+        0 0 10px #ffd700,
+        0 0 30px #ff8c00;
+}
+
+.year {
+    font-size: clamp(60px, 15vw, 130px);
+    font-weight: bold;
+    color: #ff4d88;
+    text-shadow:
+        0 0 15px #ff4d88,
+        0 0 50px #ff0066;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.subtitle {
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+.name {
+    margin-top: 25px;
+    font-size: clamp(30px, 8vw, 55px);
+    color: #ff9ac2;
+
+    text-shadow:
+        0 0 10px #ff4d88,
+        0 0 30px #ff0066;
+}
+
+.message {
+    margin-top: 20px;
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.7;
+    min-height: 80px;
+}
+
+/* Button */
+button {
+    margin-top: 25px;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4d88;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff4d88;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+/* Firework */
+.firework {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffd700;
+    animation: explode 1.5s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(30);
+        opacity: 0;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 15px;
+    font-size: 14px;
+    opacity: .7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="flag">🇪🇹</div>
+
+    <h1>2019</h1>
+
+    <div class="year">2019</div>
+
+    <div class="subtitle">
+        🎉 መልካም አዲስ ዓመት 🎉
+    </div>
+
+    <div class="name">
+        ❤️ ህያቤ ❤️
+    </div>
+
+    <div class="message" id="message"></div>
+
+    <button onclick="startCelebration()">
+        💕 🌻🌻🌻🌻🌻🌻🌻🌻💕
+    </button>
+
+</div>
+
+<div class="footer">
+    Made with ❤️ for someone special
+</div>
+
+<script>
+
+/* Create stars */
+
+for (let i = 0; i < 80; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    document.body.appendChild(star);
+}
+
+
+/* Falling hearts */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        ["❤️","💕","💖","💗","💘"][
+            Math.floor(Math.random() * 5)
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+}
+
+setInterval(createHeart, 350);
+
+
+/* Romantic message */
+
+const text =
+",❤️ እንኳን ለ2019 ዓ.ም አዲሱ ዓመት አደረሰሽ የኔ ልዩ ሴት  ❤️." +
+
+"አዲሱ ዓመት ለአንቺ ደስታን፣ ሰላምን፣ ጤናን እና የልብሽን ምኞቶች ሁሉ ይዞልሽ ይምጣ። 🥰✨." +
+" ከሁሉም በላይ ግን በዚህ አዲስ ዓመትም ከጎንሽ ሆኜ ደስታሽን ማየት፣" +
+"ሳቅሽን መስማት እና በየቀኑ የበለጠ መውደድ እፈልጋለሁ። ❤️" +
+
+"2019 ለእኛ የበለጠ ፍቅር፣ ብዙ ቆንጆ ትዝታዎች " +
+" እና አብረን ደስ የሚል ጊዜ ይሁንልን ። " +
+  
+
+"እንኳን አደረሰሽ የኔ ልዩ ስጦታ፣ Hyabye ❤️🎉 2019 የእኛ ዓመት ይሁን! 😘❤️ " +
+
+
+
+
+let index = 0;
+
+function typeMessage() {
+
+    if (index < text.length) {
+
+        document.getElementById("message")
+            .innerHTML += text.charAt(index);
+
+        index++;
+
+        setTimeout(typeMessage, 45);
+    }
+}
+
+setTimeout(typeMessage, 1500);
+
+
+/* Fireworks */
+
+function firework() {
+
+    const f = document.createElement("div");
+
+    f.className = "firework";
+
+    f.style.left =
+        (20 + Math.random() * 60) + "vw";
+
+    f.style.top =
+        (10 + Math.random() * 50) + "vh";
+
+    document.body.appendChild(f);
+
+    setTimeout(() => {
+        f.remove();
+    }, 1500);
+}
+
+
+/* Celebration button */
+
+function startCelebration() {
+
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+            firework();
+        }, i * 120);
+
+    }
+
+    for (let i = 0; i < 30; i++) {
+
+        setTimeout(() => {
+            createHeart();
+        }, i * 80);
+
+    }
+}
+
+</script>
+
+</body>
+</html>
