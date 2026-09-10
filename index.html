@@ -1,346 +1,537 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="am">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> 🌻🌻🌻🌻🌻🌻</title>
+<title>2019 ❤️ የእኛ ዓመት</title>
 
 <style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-    min-height: 100vh;
-    overflow: hidden;
-    background: radial-gradient(circle at center,
-        #24104f,
-        #09001a 70%);
-    color: white;
-    font-family: Georgia, serif;
-    text-align: center;
+  background:
+    radial-gradient(circle at 50% 40%, #260044 0%, #10001f 45%, #030008 100%);
+  color: white;
+  font-family: Georgia, "Noto Serif Ethiopic", serif;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
 }
 
 /* Stars */
 .star {
-    position: fixed;
-    width: 3px;
-    height: 3px;
-    background: white;
-    border-radius: 50%;
-    animation: twinkle 2s infinite alternate;
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: .7;
+  animation: twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle {
-    from { opacity: .2; }
-    to { opacity: 1; }
+  from { opacity: .15; transform: scale(.6); }
+  to { opacity: 1; transform: scale(1.4); }
 }
 
-/* Falling hearts */
-.heart {
-    position: fixed;
-    top: -30px;
-    color: #ff4d88;
-    font-size: 25px;
-    animation: fall linear forwards;
-    pointer-events: none;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-30px) rotate(0deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* Main container */
+/* Main */
 .container {
-    position: relative;
-    z-index: 5;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  min-height: 100vh;
+  padding: 45px 18px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
-/* Ethiopian flag colors */
 .flag {
-    font-size: 45px;
-    margin-bottom: 15px;
-    animation: floating 2s infinite ease-in-out;
+  font-size: 55px;
+  animation: float 3s ease-in-out infinite;
 }
 
-@keyframes floating {
-    50% {
-        transform: translateY(-10px);
-    }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-h1 {
-    font-size: clamp(30px, 7vw, 65px);
-    color: #ffd700;
-    text-shadow:
-        0 0 10px #ffd700,
-        0 0 30px #ff8c00;
+.small-year {
+  color: #ffd52a;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 0 0 15px #ffcc00;
+  margin-top: 10px;
 }
 
 .year {
-    font-size: clamp(60px, 15vw, 130px);
-    font-weight: bold;
-    color: #ff4d88;
-    text-shadow:
-        0 0 15px #ff4d88,
-        0 0 50px #ff0066;
-
-    animation: heartbeat 1.5s infinite;
+  font-size: clamp(75px, 23vw, 145px);
+  margin: 0;
+  color: #ff4d91;
+  text-shadow:
+    0 0 10px #ff2d75,
+    0 0 25px #ff2d75,
+    0 0 55px #ff0066;
+  animation: yearGlow 2s infinite alternate;
 }
 
-@keyframes heartbeat {
-    50% {
-        transform: scale(1.08);
-    }
+@keyframes yearGlow {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
 }
 
 .subtitle {
-    font-size: 22px;
-    margin-top: 5px;
+  font-size: clamp(22px, 6vw, 38px);
+  margin: 10px 0;
+  text-shadow: 0 0 12px #fff;
 }
 
 .name {
-    margin-top: 25px;
-    font-size: clamp(30px, 8vw, 55px);
-    color: #ff9ac2;
-
-    text-shadow:
-        0 0 10px #ff4d88,
-        0 0 30px #ff0066;
+  color: #ff75b5;
+  font-size: clamp(38px, 10vw, 60px);
+  font-weight: bold;
+  text-shadow:
+    0 0 10px #ff3d88,
+    0 0 30px #ff3d88;
+  margin: 12px 0 25px;
 }
 
-.message {
-    margin-top: 20px;
-    max-width: 650px;
-    font-size: 18px;
-    line-height: 1.7;
-    min-height: 80px;
+/* Message */
+.message-box {
+  width: min(92%, 650px);
+  padding: 25px 20px;
+  border-radius: 25px;
+  background: rgba(255, 45, 120, .12);
+  border: 1px solid rgba(255, 120, 180, .5);
+  box-shadow:
+    0 0 25px rgba(255, 40, 130, .3),
+    inset 0 0 25px rgba(255, 40, 130, .08);
+
+  font-size: clamp(17px, 4.5vw, 23px);
+  line-height: 1.9;
+  margin: 10px auto 25px;
+}
+
+.hidden-message {
+  display: none;
+  animation: reveal .8s ease forwards;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Button */
 button {
-    margin-top: 25px;
-    padding: 13px 28px;
-    border: none;
-    border-radius: 30px;
-    background: #ff4d88;
-    color: white;
-    font-size: 17px;
-    cursor: pointer;
-    box-shadow: 0 0 20px #ff4d88;
+  border: none;
+  padding: 17px 30px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff3d83, #ff1493);
+  color: white;
+  font-size: 19px;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow:
+    0 0 15px #ff3d83,
+    0 0 35px rgba(255, 20, 147, .5);
+  transition: .25s;
 }
 
 button:hover {
-    transform: scale(1.08);
+  transform: scale(1.07);
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+/* Flowers */
+.flowers {
+  margin-top: 30px;
+  width: min(95%, 600px);
+  padding: 17px;
+  border-radius: 50px;
+  background: #ff4387;
+  box-shadow:
+    0 0 20px #ff4387,
+    0 0 45px rgba(255,67,135,.5);
+  font-size: clamp(22px, 6vw, 34px);
+  letter-spacing: 3px;
+  animation: flowerPulse 2s infinite alternate;
+}
+
+@keyframes flowerPulse {
+  from { box-shadow: 0 0 15px #ff4387; }
+  to { box-shadow: 0 0 40px #ff4387; }
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -60px;
+  pointer-events: none;
+  animation: rise linear forwards;
+  z-index: 5;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  100% {
+    transform: translateY(-115vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Firework */
 .firework {
-    position: fixed;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #ffd700;
-    animation: explode 1.5s ease-out forwards;
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.particle {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+  animation: explode 1.3s ease-out forwards;
 }
 
 @keyframes explode {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(30);
-        opacity: 0;
-    }
+  from {
+    transform: translate(0,0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--x), var(--y)) scale(.1);
+    opacity: 0;
+  }
 }
 
+/* Footer */
 .footer {
-    position: absolute;
-    bottom: 15px;
-    font-size: 14px;
-    opacity: .7;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  color: #aaa;
+  font-size: 16px;
+}
+
+/* Mobile */
+@media(max-width: 500px) {
+  .container {
+    padding-top: 30px;
+  }
+
+  .message-box {
+    padding: 20px 15px;
+  }
+
+  button {
+    font-size: 17px;
+    padding: 15px 25px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div id="stars"></div>
+
 <div class="container">
 
-    <div class="flag">🇪🇹</div>
+  <div class="flag">🇪🇹</div>
 
-    <h1>2019</h1>
+  <div class="small-year">2019</div>
 
-    <div class="year">2019</div>
+  <h1 class="year">2019</h1>
 
-    <div class="subtitle">
-        🎉 መልካም አዲስ ዓመት 🎉
-    </div>
+  <div class="subtitle">
+    🎉 መልካም አዲስ ዓመት 🎉
+  </div>
 
-    <div class="name">
-        ❤️ ህያቤ ❤️
-    </div>
+  <div class="name">
+    ❤️ ሀያብ ❤️
+  </div>
 
-    <div class="message" id="message"></div>
+  <div class="message-box">
 
-    <button onclick="startCelebration()">
-        💕 🌻🌻🌻🌻🌻🌻🌻🌻💕
-    </button>
+  🌻  እንኳን ለ2019 ዓ.ም አዲሱ ዓመት አደረሰሽ
+    የኔ ልዩ ሴት  ❤️🌻
+
+    <br><br>
+
+    አዲሱ ዓመት ለአንቺ ደስታን፣
+    ሰላምን፣ ጤናን እና የልብሽን
+    ምኞቶች ሁሉ ይዞልሽ ይምጣ። 🥰✨
+
+  </div>
+
+  <button onclick="showLove()">
+    💌ይሕን ክፍቸው ህያቤ  💖
+  </button>
+
+  <div id="loveMessage" class="message-box hidden-message">
+
+    ❤️ በዚህ አዲስ ዓመትም
+    ከጎንሽ ሆኜ ደስታሽን ማየት፣
+    ሳቅሽን መስማት እና
+    በየቀኑ የበለጠ መውደድ እፈልጋለሁ። ❤️
+
+    <br><br>
+
+    2019 ለእኛ የበለጠ ፍቅር፣
+    ብዙ ቆንጆ ትዝታዎች
+    እና አብረን የምንፈጽማቸው
+    ህልሞች የሚሞላ ዓመት ይሁን። 
+
+    <br><br>
+
+    🌹 እንኳን አደረሰሽ
+    የኔ ልዩ ስጦታ 🌹
+
+    <br>
+
+    <b>2019 የእኛ ዓመት ይሁን! ❤️😘</b>
+
+  </div>
+
+  <div class="flowers">
+    💕 🌻 🌻 🌻 🌻 🌻 🌻 🌻 💕
+  </div>
 
 </div>
 
 <div class="footer">
-    Made with ❤️ for someone special
+  Made with ❤️ for someone special
 </div>
 
 <script>
 
-/* Create stars */
+/* Stars */
+for(let i = 0; i < 80; i++) {
 
-for (let i = 0; i < 80; i++) {
+  const star = document.createElement("div");
 
-    const star = document.createElement("div");
+  star.className = "star";
 
-    star.className = "star";
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay =
+    Math.random() * 3 + "s";
 
-    star.style.animationDelay =
-        Math.random() * 2 + "s";
-
-    document.body.appendChild(star);
+  document.body.appendChild(star);
 }
 
 
-/* Falling hearts */
-
+/* Hearts */
 function createHeart() {
 
-    const heart = document.createElement("div");
+  const heart = document.createElement("div");
 
-    heart.className = "heart";
+  heart.className = "heart";
 
-    heart.innerHTML =
-        ["❤️","💕","💖","💗","💘"][
-            Math.floor(Math.random() * 5)
-        ];
+  const hearts = [
+    "❤️",
+    "💖",
+    "💕",
+    "💗",
+    "💓",
+    "💘"
+  ];
 
-    heart.style.left =
-        Math.random() * 100 + "vw";
+  heart.innerHTML =
+    hearts[Math.floor(Math.random() * hearts.length)];
 
-    heart.style.fontSize =
-        (15 + Math.random() * 25) + "px";
+  heart.style.left =
+    Math.random() * 100 + "vw";
 
-    heart.style.animationDuration =
-        (4 + Math.random() * 5) + "s";
+  heart.style.fontSize =
+    (18 + Math.random() * 30) + "px";
 
-    document.body.appendChild(heart);
+  heart.style.animationDuration =
+    (5 + Math.random() * 6) + "s";
 
-    setTimeout(() => {
-        heart.remove();
-    }, 9000);
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 12000);
 }
 
-setInterval(createHeart, 350);
-
-
-/* Romantic message */
-
-const text =
-",❤️ እንኳን ለ2019 ዓ.ም አዲሱ ዓመት አደረሰሽ የኔ ልዩ ሴት  ❤️." +
-
-"አዲሱ ዓመት ለአንቺ ደስታን፣ ሰላምን፣ ጤናን እና የልብሽን ምኞቶች ሁሉ ይዞልሽ ይምጣ። 🥰✨." +
-" ከሁሉም በላይ ግን በዚህ አዲስ ዓመትም ከጎንሽ ሆኜ ደስታሽን ማየት፣" +
-"ሳቅሽን መስማት እና በየቀኑ የበለጠ መውደድ እፈልጋለሁ። ❤️" +
-
-"2019 ለእኛ የበለጠ ፍቅር፣ ብዙ ቆንጆ ትዝታዎች " +
-" እና አብረን ደስ የሚል ጊዜ ይሁንልን ። " +
-  
-
-"እንኳን አደረሰሽ የኔ ልዩ ስጦታ፣ Hyabye ❤️🎉 2019 የእኛ ዓመት ይሁን! 😘❤️ " +
-
-
-
-
-let index = 0;
-
-function typeMessage() {
-
-    if (index < text.length) {
-
-        document.getElementById("message")
-            .innerHTML += text.charAt(index);
-
-        index++;
-
-        setTimeout(typeMessage, 45);
-    }
-}
-
-setTimeout(typeMessage, 1500);
+setInterval(createHeart, 450);
 
 
 /* Fireworks */
-
 function firework() {
 
-    const f = document.createElement("div");
+  const centerX =
+    15 + Math.random() * 70;
 
-    f.className = "firework";
+  const centerY =
+    15 + Math.random() * 45;
 
-    f.style.left =
-        (20 + Math.random() * 60) + "vw";
+  const colors = [
+    "#ff3b81",
+    "#ffd700",
+    "#00e5ff",
+    "#ffffff",
+    "#ff8a00"
+  ];
 
-    f.style.top =
-        (10 + Math.random() * 50) + "vh";
+  for(let i = 0; i < 35; i++) {
 
-    document.body.appendChild(f);
+    const p = document.createElement("div");
+
+    p.className = "particle";
+
+    p.style.left = centerX + "vw";
+    p.style.top = centerY + "vh";
+
+    p.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    const angle =
+      Math.random() * Math.PI * 2;
+
+    const distance =
+      50 + Math.random() * 130;
+
+    p.style.setProperty(
+      "--x",
+      Math.cos(angle) * distance + "px"
+    );
+
+    p.style.setProperty(
+      "--y",
+      Math.sin(angle) * distance + "px"
+    );
+
+    document.body.appendChild(p);
 
     setTimeout(() => {
-        f.remove();
-    }, 1500);
+      p.remove();
+    }, 1400);
+  }
+}
+
+setInterval(firework, 2200);
+
+
+/* Love button */
+function showLove() {
+
+  const box =
+    document.getElementById("loveMessage");
+
+  box.style.display = "block";
+
+  firework();
+
+  for(let i = 0; i < 15; i++) {
+    setTimeout(createHeart, i * 100);
+  }
+
+  startMusic();
 }
 
 
-/* Celebration button */
+/* Simple romantic melody */
+let audioContext;
+let musicStarted = false;
 
-function startCelebration() {
+function startMusic() {
 
-    for (let i = 0; i < 25; i++) {
+  if(musicStarted) return;
 
-        setTimeout(() => {
-            firework();
-        }, i * 120);
+  musicStarted = true;
 
-    }
+  audioContext =
+    new (window.AudioContext ||
+    window.webkitAudioContext)();
 
-    for (let i = 0; i < 30; i++) {
+  const notes = [
+    261.63,
+    329.63,
+    392.00,
+    329.63,
+    293.66,
+    349.23,
+    440.00,
+    392.00
+  ];
 
-        setTimeout(() => {
-            createHeart();
-        }, i * 80);
+  let time =
+    audioContext.currentTime;
 
-    }
+  notes.forEach((note, index) => {
+
+    const oscillator =
+      audioContext.createOscillator();
+
+    const gain =
+      audioContext.createGain();
+
+    oscillator.type = "sine";
+
+    oscillator.frequency.value = note;
+
+    gain.gain.setValueAtTime(
+      0,
+      time
+    );
+
+    gain.gain.linearRampToValueAtTime(
+      0.08,
+      time + 0.05
+    );
+
+    gain.gain.linearRampToValueAtTime(
+      0,
+      time + 0.55
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start(time);
+    oscillator.stop(time + 0.6);
+
+    time += 0.6;
+  });
+
+  setTimeout(() => {
+    musicStarted = false;
+  }, notes.length * 600);
 }
 
 </script>
